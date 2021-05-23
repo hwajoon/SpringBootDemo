@@ -31,6 +31,10 @@ class DemoprjApplicationTests {
 		UserProfile userProfile = mapper.getLoginInfo("222");
 		System.out.println("UserProfile >>> = " + userProfile);
 		assertEquals("홍길동2", userProfile.getName());
+
+		String uname = mapper.getUsername("111");
+		System.out.println("uname >>> = " + uname);
+		assertEquals("홍길동1", uname);
 	}
 
 	@Ignore @Test
