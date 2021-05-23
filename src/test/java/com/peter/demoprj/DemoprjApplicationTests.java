@@ -1,5 +1,8 @@
 package com.peter.demoprj;
 
+import com.peter.demoprj.domain.UserProfile;
+import com.peter.demoprj.mapper.UserProfileMapper;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,17 @@ class DemoprjApplicationTests {
 	@Autowired
 	private DataSource ds;
 
+	@Autowired
+	private UserProfileMapper mapper;
+
 	@Test
+	public void testUserProfileMapper() throws Exception {
+		UserProfile userProfile = mapper.getLoginInfo("222");
+		System.out.println("UserProfile >>> = " + userProfile);
+		assertEquals("홍길동2", userProfile.getName());
+	}
+
+	@Ignore @Test
 	public void testDataSource() throws Exception {
 		System.out.println("DS=" + ds);
 
